@@ -11,6 +11,9 @@
 
 
 <div class="container">
+  <div *ngIf="deleteError" class="alert alert-danger">
+    {{ deleteError }}
+  </div>
   <div class="row">
     <div class="col-md-12">
         <div class="input-group">
@@ -23,6 +26,10 @@
     <div *ngFor="let foto of fotos | filtroPorTitulo: termoBusca" class="col-md-3">
       <card titulo="{{ foto.titulo }}">
         <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+        <br>
+        <button class="btn btn-danger d-block mx-auto" (click)="removerFotinha(foto)">
+          Apagar
+        </button>
       </card>
     </div>
   </div>

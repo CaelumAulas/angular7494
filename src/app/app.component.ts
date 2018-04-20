@@ -9,8 +9,10 @@ import { HttpClient } from '@angular/common/http';
 
 // Ciclo de vida
 export class AppComponent {
+  private http : HttpClient
   // injetado
   constructor(http : HttpClient){
+    this.http = http
     http
       .get('http://localhost:3000/v1/fotos')
       .subscribe((resultado : Object[]) => {
@@ -20,4 +22,18 @@ export class AppComponent {
 
   title = 'Caelumpic';
   fotos = []
+  deleteError : string
+
+  removerFotinha = (fotoARemover) => {
+    this.http.delete('http://localhost:3000/v1/fotos/' + fotoARemover._id)
+      .subscribe(
+        () => {
+          this.fotos = this.fotos.filter(foto => foto._id !== fotoARemover._id)
+        }
+        ,(error) => {
+          this.deleteError = "Não foi possível apagar a foto " + fotoARemover.titulo
+        }
+      )
+  }
+
 }
