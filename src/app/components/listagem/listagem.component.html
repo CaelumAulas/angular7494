@@ -22,6 +22,10 @@
         <button class="btn btn-danger d-block mx-auto" (click)="removerFotinha(foto._id)">
           Apagar
         </button>
+        <br>
+        <a class="btn btn-primary d-block mx-auto" [routerLink]="['/cadastro', foto._id]" >
+            Editar
+        </a>
       </card>
     </div>
   </div>

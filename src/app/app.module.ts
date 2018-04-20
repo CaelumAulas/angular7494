@@ -14,6 +14,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 const routes = RouterModule.forRoot([
   { path: '', component: ListagemComponent },
   { path: 'cadastro', component: CadastroComponent },
+  { path: 'cadastro/:id', component: CadastroComponent },
   { path: '**', redirectTo: '' }
 ]);
 
