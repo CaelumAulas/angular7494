@@ -6,7 +6,10 @@
   <div class="row">
     <div class="col-md-12">
         <div class="input-group">
-          <input type="text" value="gat" #inputBusca (input)="termoBusca = inputBusca.value" class="form-control">
+          <span class="input-group-addon">
+            <a [routerLink]="['/cadastro']" class="btn btn-primary">Nova foto</a>
+          </span>
+          <input type="text" value="{{ termoBusca }}" #inputBusca (input)="termoBusca = inputBusca.value" class="form-control">
         </div>
     </div>
   </div>
