@@ -9,9 +9,18 @@
 <!-- componente -->
 <!-- https://github.com/caelum/caelumpic-server rodando em localhost:3000-->
 
+
 <div class="container">
   <div class="row">
-    <div *ngFor="let foto of fotos | filtroPorTitulo: 'gat'" class="col-md-3">
+    <div class="col-md-12">
+        <div class="input-group">
+          <input type="text" value="gat" #inputBusca (input)="termoBusca = inputBusca.value" class="form-control">
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div *ngFor="let foto of fotos | filtroPorTitulo: termoBusca" class="col-md-3">
       <card titulo="{{ foto.titulo }}">
         <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
       </card>

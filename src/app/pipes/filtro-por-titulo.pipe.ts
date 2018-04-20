@@ -6,7 +6,7 @@ import { FotoComponent } from '../../modules/bootstrap/components/foto/foto.comp
 })
 export class FiltroPorTituloPipe implements PipeTransform {
 
-  transform(fotos: FotoComponent[], termoBusca: String): any {
+  transform(fotos: FotoComponent[] = [], termoBusca: String = ''): any {
     return fotos.filter(foto => foto.titulo.toLowerCase().includes(
       termoBusca.toLowerCase()
     ))
