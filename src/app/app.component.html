@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="row">
-    <div *ngFor="let foto of fotos" class="col-md-3">
+    <div *ngFor="let foto of fotos | filtroPorTitulo: 'gat'" class="col-md-3">
       <card titulo="{{ foto.titulo }}">
         <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
       </card>
