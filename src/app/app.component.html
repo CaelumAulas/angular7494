@@ -10,11 +10,25 @@
 <!-- https://github.com/caelum/caelumpic-server rodando em localhost:3000-->
 
 <div class="container">
+  <input class="form-control" type="text" value="{{termoBusca}}"
+    #inputBusca (input)="termoBusca = inputBusca.value">
+  <br>
+
+  <div *ngIf="erroDelete" class="alert alert-danger">
+    Não foi possível remover a foto
+  </div>
+
   <div class="row">
-    <div *ngFor="let foto of fotos" class="col-md-3">
-      <card titulo="{{ foto.titulo }}">
+    <div *ngFor="let foto of fotos | filtroPorTitulo : termoBusca" class="col-md-3">
+
+      <card titulo="{{ foto.titulo | uppercase }}">
         <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
+        <br>
+        <button class="btn btn-danger d-block mx-auto" (click)="removerFoto(foto._id)">
+          Apagar
+        </button>
       </card>
+
     </div>
   </div>
 </div>
