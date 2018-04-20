@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FiltroPorTituloPipe } from './pipes/filtro-por-titulo.pipe';
+import { FotoService } from './services/foto.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BootstrapModule } from '../modules/bootstrap/bootstrap.module';
@@ -17,7 +18,9 @@ import { BootstrapModule } from '../modules/bootstrap/bootstrap.module';
     HttpClientModule,
     BootstrapModule
   ],
-  providers: [],
+  providers: [
+    FotoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
