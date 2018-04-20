@@ -1,7 +1,7 @@
 
 <div class="container">
   <div *ngIf="deleteError" class="alert alert-danger">
-    {{ deleteError }}
+    Não foi possível apagar a foto
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -19,7 +19,7 @@
       <card titulo="{{ foto.titulo }}">
         <foto url="{{ foto.url }}" titulo="{{ foto.titulo }}"></foto>
         <br>
-        <button class="btn btn-danger d-block mx-auto" (click)="removerFotinha(foto)">
+        <button class="btn btn-danger d-block mx-auto" (click)="removerFotinha(foto._id)">
           Apagar
         </button>
       </card>

@@ -21,16 +21,17 @@ export class ListagemComponent {
   }
 
   fotos = []
-  deleteError : string
+  deleteError : boolean
 
-  removerFotinha = (fotoARemover) => {
-    this.fotoService.delete(fotoARemover)
+  removerFotinha = (idDaFoto) => {
+    this.fotoService.deletar(idDaFoto)
       .subscribe(
         () => {
-          this.fotos = this.fotos.filter(foto => foto._id !== fotoARemover._id)
+          this.fotos = this.fotos.filter(foto => foto._id !== idDaFoto)
+          this.deleteError = false
         }
         ,(error) => {
-          this.deleteError = "Não foi possível apagar a foto " + fotoARemover.titulo
+          this.deleteError = true
         }
       )
   }
