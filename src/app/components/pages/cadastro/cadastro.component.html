@@ -1,0 +1,35 @@
+<!-- código daqui: https://bit.ly/2Hi3LLy -->
+<section class="container">
+
+    <div class="jumbotron text-center">
+      <h2>Cadastro</h2>
+    </div>
+
+    <div class="row justify-content-sm-between">
+      <form class="col-sm-6" (submit)="submete($event)" #formFoto="ngForm">
+        <div class="form-group">
+          <label for="">Titulo</label>
+          <input required pattern="" class="form-control" name="titulo" [(ngModel)]="foto.titulo">
+          <br>
+          <div *ngIf="formFoto.controls.titulo.invalid" class="form-control alert-danger">
+            Título obrigatório
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">URL</label>
+          <input class="form-control" name="url" [(ngModel)]="foto.url">
+        </div>
+        <div class="form-group">
+          <label for="">Descrição</label>
+          <textarea class="form-control" name="descricao" [(ngModel)]="foto.descricao"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="formFoto.form.invalid">
+          Salvar
+        </button>
+        <a [routerLink]="['/']">Voltar</a>
+      </form>
+      <card titulo="{{foto.titulo}}" class="col-sm-6">
+        <foto titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
+      </card>
+    </div>
+  </section>
